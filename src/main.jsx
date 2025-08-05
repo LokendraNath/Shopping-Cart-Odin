@@ -6,12 +6,19 @@ import Layout from "./Layout.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Home from "./pages/Home.jsx";
-import Shop from "./pages/Shop.jsx";
+import Shop from "./pages/Proudct.jsx";
+
+const dataLoader = async () => {
+  const response = await fetch("https://fakestoreapi.com/products");
+  const productData = await response.json();
+  return { productData };
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    loader: dataLoader,
     children: [
       {
         path: "",
