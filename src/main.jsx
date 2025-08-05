@@ -6,7 +6,9 @@ import Layout from "./Layout.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Home from "./pages/Home.jsx";
-import Shop from "./pages/Proudct.jsx";
+import Product from "./pages/Product.jsx";
+import { Car } from "lucide-react";
+import Cart from "./pages/Cart.jsx";
 
 const dataLoader = async () => {
   // const response = await fetch("https://fakestoreapi.com/products");
@@ -65,9 +67,13 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "shop",
-        element: <Shop />,
+        path: "products",
+        element: <Product />,
       },
+      {
+        path: "cart",
+        element: <Cart />
+      }
     ],
   },
 ]);

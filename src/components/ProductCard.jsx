@@ -1,7 +1,6 @@
-import { ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
-const ProductCard = ({ product, setCartProductQtys }) => {
+const ProductCard = ({ product, setCart, cart, onAddToCart }) => {
   const [quntity, setQuntity] = useState(1);
 
   function handleQtyClick(arg) {
@@ -25,9 +24,11 @@ const ProductCard = ({ product, setCartProductQtys }) => {
     }
   }
 
-  function handleAddToCart(productId) {
-    setCartProductQtys((prev) => ({ ...prev, [productId]: quntity }));
-    setQuntity(1);
+  function handleAddToCart() {
+    if (quntity && Number(quntity) > 0) {
+      onAddToCart(product, Number(quntity));
+      setQuntity(1);
+    }
   }
 
   return (

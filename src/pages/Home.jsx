@@ -17,7 +17,7 @@ const Home = () => {
           veritatis corporis, impedit quasi eaque quos?
         </p>
         <button className="py-4 px-10 bg-gradient-to-l to-blue-500 from-blue-800 rounded-2xl text-2xl font-bold text-white">
-          <Link to="shop">Shop Now !!</Link>
+          <Link to="products">Shop Now !!</Link>
         </button>
       </div>
     </div>
