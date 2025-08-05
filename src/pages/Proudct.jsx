@@ -1,13 +1,8 @@
-import { Minus, Plus, ShoppingBag } from "lucide-react";
-import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 
 const Shop = () => {
-  const { productData, handleAddToCart } = useOutletContext();
-  const [quntity, setQuntity] = useState(0);
-
-  function addToCart() {}
+  const { productData, setCartProductQtys } = useOutletContext();
 
   return (
     <div>
@@ -18,9 +13,9 @@ const Shop = () => {
         {productData.map((product) => {
           return (
             <ProductCard
+              key={product.id}
               product={product}
-              AddBtn={handleAddToCart}
-              setQuntity={setQuntity}
+              setCartProductQtys={setCartProductQtys}
             />
           );
         })}

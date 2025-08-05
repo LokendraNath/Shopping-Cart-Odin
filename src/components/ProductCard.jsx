@@ -1,13 +1,13 @@
 import { ShoppingBag } from "lucide-react";
 import { useState } from "react";
 
-const ProductCard = ({ product, AddBtn, setProductsQnt }) => {
-  const [quntity, setQuntity] = useState(0);
+const ProductCard = ({ product, setCartProductQtys }) => {
+  const [quntity, setQuntity] = useState(1);
 
   function handleQtyClick(arg) {
     setQuntity((prev) => {
       if (arg === "plus" && prev < 10) return prev + 1;
-      else if (arg === "min" && prev > 1) return prev - 1;
+      else if (arg === "min" && prev > 0) return prev - 1;
       return prev;
     });
   }
@@ -25,9 +25,14 @@ const ProductCard = ({ product, AddBtn, setProductsQnt }) => {
     }
   }
 
+  function handleAddToCart(productId) {
+    setCartProductQtys((prev) => ({ ...prev, [productId]: quntity }));
+    setQuntity(1);
+  }
+
   return (
     <div className="border-1 flex flex-col items-center justify-center py-3 px-5 rounded-lg">
-      <img src={product.image} className="h-50" alt="" />
+      <img src="../image/hello.jpg" className="h-50" alt="image tha" />
       <div className="mt-10 px-3 flex items-center flex-col">
         <h2 className="text-xl mb-3 text-start line-clamp-1">
           {product.title}
@@ -58,7 +63,7 @@ const ProductCard = ({ product, AddBtn, setProductsQnt }) => {
           </div>
         </div>
         <button
-          onClick={() => AddBtn(product.id)}
+          onClick={() => handleAddToCart(product.id)}
           className="flex bg-blue-800 text-white py-2 text-xl items-center px-5 rounded-full gap-3 active:scale-95 transition-transform duration-300"
         >
           Add To Cart
