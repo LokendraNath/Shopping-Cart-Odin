@@ -1,10 +1,18 @@
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 @import "tailwindcss";
 
 @theme {
   --font-poppins: "Poppins", "sans-serif";
 }
-=======
-@import "tailwindcss";
->>>>>>> dae877587e956bb49bc6c191f85b50b362aaa4fa
+
+/* Chrome, Safari, Edge ke liye */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox ke liye */
+input[type='number'] {
+  -moz-appearance: textfield;
+}s
