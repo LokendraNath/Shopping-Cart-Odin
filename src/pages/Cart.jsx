@@ -3,63 +3,73 @@ import { X } from "lucide-react";
 import { useOutletContext } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, handleCartQtyClick,handleDeleteCartItem } = useOutletContext();
+  const { cart, handleCartQtyClick, handleDeleteCartItem } = useOutletContext();
   const total = cart.reduce((sum, item) => {
     return sum + item.price * item.qty;
   }, 0);
 
   return (
-    <div className="min-h-screen grid grid-cols-12 gap-10 mt-5">
-      <div className="border-2 col-span-8 p-5 flex flex-col gap-5">
+    <div className="min-h-auto grid grid-cols-12 gap-10 mt-5">
+      <div className="col-span-8 p-5 flex flex-col gap-5 row-span-3 max-h-120 overflow-y-auto">
         {console.log(cart)}
         {cart.map((item) => (
           <div
             key={item.id}
-            className="relative w-full border-1 py-4 px-5 flex items-start justify-between rounded-2xl h-40"
+            className="relative w-full border-1 py-4 px-5 grid grid-cols-12 items-start rounded-2xl h-40"
           >
             <X
-              className="absolute right-[-7px] top-[-7px] bg-red-500 rounded-full text-white"
+              className="absolute right-[-7px] top-[-7px] bg-red-500 rounded-full text-white cursor-pointer"
               size={20}
               onClick={() => handleDeleteCartItem(item.id)}
             />
-            <img src={item.image} className="w-30 h-full" alt="item.title" />
-            <h2 className="text-xl">{item.title}</h2>
-            <div className="flex flex-col items-center">
-              Each: <h1>${item.price}</h1>
+            <div className="w-30 h-30 shrink-0 overflow-hidden col-span-3">
+              <img
+                src={item.image}
+                className="h-full w-full object-cover object-top"
+                alt="item.title"
+              />
             </div>
-            <div className="flex flex-col items-center">
-              Quantity:{" "}
-              <div className="border border-black px-2 py-1 rounded-2xl flex items-center">
-                <span
-                  onClick={() => handleCartQtyClick("min", item.id)}
-                  className="text-xl cursor-pointer active:scale-95 transition-transform"
-                >
-                  -
-                </span>
-                <input
-                  type="number"
-                  min={1}
-                  value={item.qty}
-                  // onChange={handleInputChange}
-                  max={10}
-                  className="bg-white text-black w-8 border-none focus:border-none outline-none ml-4"
-                />
-                <span
-                  onClick={() => handleCartQtyClick("plus", item.id)}
-                  className="text-xl cursor-pointer active:scale-95 transition-transform"
-                >
-                  +
-                </span>
+            <div className="shrink flex items-start justify-between col-span-9">
+              <h2 className="text-lg max-w-50 text-left text-wrap">
+                {item.title}
+              </h2>
+              <div className="flex flex-col items-center">
+                Each: <h1>${item.price}</h1>
               </div>
-            </div>
-            <div className="flex flex-col items-center">
-              Total: <h1>${item.qty * item.price}</h1>
+              <div className="flex flex-col items-center">
+                Quantity:{" "}
+                <div className="border border-black px-2 py-1 rounded-2xl flex items-center">
+                  <span
+                    onClick={() => handleCartQtyClick("min", item.id)}
+                    className="text-xl cursor-pointer active:scale-95 transition-transform"
+                  >
+                    -
+                  </span>
+                  <input
+                    type="number"
+                    min={1}
+                    value={item.qty}
+                    // onChange={handleInputChange}
+                    max={10}
+                    className="bg-white text-black w-8 border-none focus:border-none outline-none ml-4"
+                  />
+                  <span
+                    onClick={() => handleCartQtyClick("plus", item.id)}
+                    className="text-xl cursor-pointer active:scale-95 transition-transform"
+                  >
+                    +
+                  </span>
+                </div>
+              </div>
+              <div className="flex flex-col items-center w-20">
+                Total: <h1>${item.qty * item.price}</h1>
+              </div>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="border-2 col-span-4 p-5">
+      <div className="col-span-4 p-5 border row-span-1">
         <h1 className="mb-5">TOTAL</h1>
         <div className="border-t border-b py-4 px-3">
           <div className="flex items-center justify-between mb-3">
