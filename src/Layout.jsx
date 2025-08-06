@@ -9,12 +9,13 @@ const Layout = () => {
   const onAddToCart = (product, qty) => {
     setCart((prev) => {
       const existing = prev.find((p) => p.id === product.id);
+
       if (existing) {
-        prev.map((item) =>
+        return prev.map((item) =>
           item.id === product.id ? { ...item, qty: item.qty + qty } : item
         );
       }
-      return [...prev, { ...prev, qty }];
+      return [...prev, { ...product, qty }];
     });
   };
 
