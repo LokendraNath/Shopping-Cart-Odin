@@ -1,12 +1,39 @@
-# React + Vite
+# 🛒 QuickBasket - Odin Shopping Cart Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📸 Screenshots
 
-Currently, two official plugins are available:
+![Home Page](./src/image/prev.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+QuickBasket is a modern and responsive shopping cart application built using **React**, **Tailwind CSS**, and **React Router**. This project is part of the Odin Project curriculum and focuses on integrating key frontend concepts like routing, state management, API handling, and user interface design.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Tech Stack
+
+- **React** – Component-based architecture
+- **Tailwind CSS** – Utility-first styling
+- **React Router** – Page navigation
+- **FakeStore API** – Product data fetching
+
+---
+
+## 🎯 Project Focus
+
+> **Learning Goal:**  
+Build a complete e-commerce cart flow with dynamic state updates, routing, and clean UI/UX practices, following Odin Project's Shopping Cart challenge.
+
+---
+
+## 🧩 Features
+
+- ✅ **Clean & Responsive UI**
+- 🏠 **Home Page** – Overview and intro
+- 🛍️ **Product Page** – Display products from [FakeStore API](https://fakestoreapi.com)
+- ➕ **Add to Cart** – Add products to your cart with selected quantity
+- 🔄 **Real-time Quantity Update** – Adjust item quantities on the fly
+- 🧮 **Subtotal Calculation** – Checkout page displays live totals
+- 🛒 **Cart Page** – Review and manage your cart items
+- ❌ **Remove Item** – Easily remove any product from the cart
+- 💳 **Checkout Page** – Proceed to payment (UI only)
