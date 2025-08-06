@@ -45,6 +45,10 @@ const Layout = () => {
     });
   }
 
+  function handleDeleteCartItem(productId) {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+  }
+
   return (
     <div className="flex flex-col min-h-screen font-poppins">
       <Header cart={cart} />
@@ -56,6 +60,7 @@ const Layout = () => {
             setCart,
             onAddToCart,
             handleCartQtyClick,
+            handleDeleteCartItem,
           }}
         />
       </main>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ProductCard = ({ product, cart, onAddToCart }) => {
+const ProductCard = ({ product, onAddToCart }) => {
   const [quntity, setQuntity] = useState(1);
 
   function handleQtyClick(arg) {

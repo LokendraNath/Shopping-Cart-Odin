@@ -1,8 +1,9 @@
 import js from "@eslint/js";
+import { X } from "lucide-react";
 import { useOutletContext } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, handleCartQtyClick } = useOutletContext();
+  const { cart, handleCartQtyClick,handleDeleteCartItem } = useOutletContext();
   const total = cart.reduce((sum, item) => {
     return sum + item.price * item.qty;
   }, 0);
@@ -14,13 +15,14 @@ const Cart = () => {
         {cart.map((item) => (
           <div
             key={item.id}
-            className="w-full border-1 py-4 px-5 flex items-start justify-between rounded-2xl"
+            className="relative w-full border-1 py-4 px-5 flex items-start justify-between rounded-2xl h-40"
           >
-            <img
-              src={item.image}
-              className="border-2 h-30 w-30"
-              alt="item.title"
+            <X
+              className="absolute right-[-7px] top-[-7px] bg-red-500 rounded-full text-white"
+              size={20}
+              onClick={() => handleDeleteCartItem(item.id)}
             />
+            <img src={item.image} className="w-30 h-full" alt="item.title" />
             <h2 className="text-xl">{item.title}</h2>
             <div className="flex flex-col items-center">
               Each: <h1>${item.price}</h1>
