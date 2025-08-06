@@ -32,7 +32,7 @@ const ProductCard = ({ product, onAddToCart }) => {
   }
 
   return (
-    <div className="border-1 flex flex-col items-center justify-center py-3 px-5 rounded-lg">
+    <div className="border-1 flex flex-col items-center justify-center py-3 px-5 rounded-lg hover:scale-105 transition-transform duration-300 shadow-[0px_4px_6px_0px_rgba(0,_0,_0,_0.1)] hover:shadow-[0px_8px_12px_0px_rgba(0,_0,_0,_0.1)]">
       <img src={product.image} className="h-50" alt="image tha" />
       <div className="mt-10 px-3 flex items-center flex-col">
         <h2 className="text-xl mb-3 text-start line-clamp-1">
