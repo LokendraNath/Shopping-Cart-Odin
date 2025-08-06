@@ -75,7 +75,7 @@ const Cart = () => {
         <h1 className="mb-5">TOTAL</h1>
         <div className="border-t border-b py-4 px-3">
           <div className="flex items-center justify-between mb-3">
-            <span>Shopping Cost:</span> <span>${total}</span>
+            <span>Shopping Cost:</span> <span>${total.toFixed(2)}</span>
           </div>
           <div className="flex items-center justify-between mb-3">
             <span>Tax (18%):</span> <span>${gst.toFixed(1)}</span>
