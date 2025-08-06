@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ProductCard = ({ product, setCart, cart, onAddToCart }) => {
+const ProductCard = ({ product, cart, onAddToCart }) => {
   const [quntity, setQuntity] = useState(1);
 
   function handleQtyClick(arg) {
@@ -33,7 +33,7 @@ const ProductCard = ({ product, setCart, cart, onAddToCart }) => {
 
   return (
     <div className="border-1 flex flex-col items-center justify-center py-3 px-5 rounded-lg">
-      <img src="../image/hello.jpg" className="h-50" alt="image tha" />
+      <img src={product.image} className="h-50" alt="image tha" />
       <div className="mt-10 px-3 flex items-center flex-col">
         <h2 className="text-xl mb-3 text-start line-clamp-1">
           {product.title}
