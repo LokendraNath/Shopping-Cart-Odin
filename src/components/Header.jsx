@@ -7,21 +7,8 @@ export const Header = ({ cart }) => {
     <nav className="py-5 flex items-center justify-between px-20 text-blue-800">
       <h1 className="text-3xl font-bold">
         {/* <img src="" alt="" /> */}
-        <Link to="/">Shopping Cart</Link>
+        <Link to="/">QuickBasket</Link>
       </h1>
-      <div>
-        <ul className="flex gap-10 text-xl">
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="about">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="contact">Support</NavLink>
-          </li>
-        </ul>
-      </div>
       <div className="flex gap-5">
         <div className="relative">
           <Link to="cart">
@@ -35,7 +22,6 @@ export const Header = ({ cart }) => {
             ""
           )}
         </div>
-        <CircleUserRound size={30} />
       </div>
     </nav>
   );

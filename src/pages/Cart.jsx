@@ -1,4 +1,3 @@
-import js from "@eslint/js";
 import { X } from "lucide-react";
 import { useOutletContext } from "react-router-dom";
 
@@ -7,6 +6,9 @@ const Cart = () => {
   const total = cart.reduce((sum, item) => {
     return sum + item.price * item.qty;
   }, 0);
+  const delivery = total > 100 ? 0 : total > 50 ? 5 : 10;
+  const gst = total * 0.18;
+  const finalTotal = total + gst + Number(delivery);
 
   return (
     <div className="min-h-auto grid grid-cols-12 gap-10 mt-5">
@@ -76,15 +78,14 @@ const Cart = () => {
             <span>Shopping Cost:</span> <span>${total}</span>
           </div>
           <div className="flex items-center justify-between mb-3">
-            <span>Tax (18%):</span> <span>${(total * 0.18).toFixed(1)}</span>
+            <span>Tax (18%):</span> <span>${gst.toFixed(1)}</span>
           </div>
           <div className="flex items-center justify-between mb-3">
-            <span>Delivery:</span>{" "}
-            <span>{total > 100 ? "Free" : total > 50 ? "$5" : "$10"}</span>
+            <span>Delivery:</span> <span>${delivery}</span>
           </div>
         </div>
         <div className="flex items-center justify-between mb-3 border-b py-3 px-3 font-semibold">
-          <span>Total:</span> <span>${(total + total * 0.18).toFixed(1)}</span>
+          <span>Total:</span> <span>${finalTotal.toFixed(2)}</span>
         </div>
         <button className="w-full py-3 mt-5 bg-blue-700 text-white text-2xl font-bold tracking-wider rounded-full active:scale-90 transition-transform duration-300">
           CHECKOUT
