@@ -7,44 +7,11 @@ import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Home from "./pages/Home.jsx";
 import Product from "./pages/Product.jsx";
-import { Car } from "lucide-react";
 import Cart from "./pages/Cart.jsx";
 
 const dataLoader = async () => {
-  // const response = await fetch("https://fakestoreapi.com/products");
-  // const productData = await response.json();
-  const productData = [
-    {
-      id: 1,
-      image: "./image/hello.jpg",
-      price: 235.0,
-      title: "Nike Air 69",
-    },
-    {
-      id: 2,
-      image: "./image/hello.jpg",
-      price: 125.0,
-      title: "Puma Tshirt",
-    },
-    {
-      id: 3,
-      image: "../image/hello.jpg",
-      price: 765.0,
-      title: "Air Jorden 696969969",
-    },
-    {
-      id: 4,
-      image: "./image/hello.jpg",
-      price: 455.0,
-      title: "Playstation 5 (for kids only)",
-    },
-    {
-      id: 5,
-      image: "./image/hello.jpg",
-      price: 95.0,
-      title: "Macbook air 23 dufkuekj",
-    },
-  ];
+  const response = await fetch("https://fakestoreapi.com/products");
+  const productData = await response.json();
   return { productData };
 };
 
@@ -59,6 +26,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
         path: "about",
         element: <About />,
       },
@@ -70,10 +41,6 @@ const router = createBrowserRouter([
         path: "products",
         element: <Product />,
       },
-      {
-        path: "cart",
-        element: <Cart />
-      }
     ],
   },
 ]);
