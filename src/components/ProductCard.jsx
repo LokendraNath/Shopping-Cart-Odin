@@ -6,7 +6,7 @@ const ProductCard = ({ product, onAddToCart }) => {
   function handleQtyClick(arg) {
     setQuntity((prev) => {
       if (arg === "plus" && prev < 10) return prev + 1;
-      else if (arg === "min" && prev > 0) return prev - 1;
+      else if (arg === "min" && prev > 1) return prev - 1;
       return prev;
     });
   }

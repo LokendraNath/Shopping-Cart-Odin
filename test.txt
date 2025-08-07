@@ -1,0 +1,40 @@
+1. ProductCard Component
+✅ Product title, price, image render हो रहे हैं या नहीं
+✅ Quantity input default value और min/max boundaries (1-10)
+✅ + और - बटन से quantity सही बढ़/घट रही है
+✅ Quantity input में manually value डालने पर सही update हो रहा है
+✅ Add To Cart बटन पर click से onAddToCart सही arguments के साथ call हो रहा है
+✅ Quantity invalid (0, "", 11) डालने पर addToCart नहीं होना चाहिए
+
+
+2. Cart Page
+✅ Cart में items सही render हो रहे हैं (title, price, qty, image)
+✅ Cart में quantity + और - बटन से update हो रही है (handleCartQtyClick)
+✅ Cart item delete (X icon) से item हट रहा है (handleDeleteCartItem)
+✅ Cart total, GST, delivery, final total calculation सही है
+✅ Cart empty हो तो empty state दिख रहा है
+✅ Checkout बटन render हो रहा है
+3. Header Component
+✅ Logo और cart icon render हो रहे हैं
+✅ Cart icon पर cart count badge सही दिख रहा है
+✅ Cart icon पर click से cart page पर navigation हो रहा है
+4. Footer Component
+✅ Footer में credit text render हो रहा है
+5. Home Page
+✅ Welcome message, image, और "Shop Now" बटन render हो रहे हैं
+✅ "Shop Now" बटन पर click से products page पर navigation हो रहा है
+6. Product Page
+✅ Product list सही render हो रही है (ProductCard के साथ)
+✅ ProductCard के props सही pass हो रहे हैं
+7. Integration & Flow
+✅ Product add करने पर cart में item count बढ़ता है
+✅ Cart में quantity update करने पर total update होता है
+✅ Cart से item delete करने पर total update होता है
+✅ Checkout बटन पर click से (अगर implemented है) सही action होता है
+8. Accessibility (a11y)
+✅ सभी interactive elements (button, input) के roles और accessible names सही हैं
+✅ Keyboard navigation (Tab, Enter) से main actions accessible हैं
+9. Edge Cases
+✅ Cart में 0 item हो तो empty state
+✅ Product की quantity 1 से कम या 10 से ज्यादा नहीं जा सकती
+✅ ProductCard में image ना हो तो fallback alt text

@@ -6,7 +6,6 @@ export const Header = ({ cart }) => {
   return (
     <nav className="py-5 flex items-center justify-between px-20 text-blue-800">
       <h1 className="text-3xl font-bold">
-        {/* <img src="" alt="" /> */}
         <Link to="/">QuickBasket</Link>
       </h1>
       <div className="flex gap-5">
