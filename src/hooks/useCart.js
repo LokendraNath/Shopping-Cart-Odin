@@ -10,11 +10,7 @@ export const useCart = () => {
   useEffect(() => {
     localStorage.setItem("odin-shop-cart", JSON.stringify(cart));
   }, [cart]);
-
-  useEffect(() => {
-    console.log("Cart Update", cart);
-  }, [cart]);
-
+  
   const onAddToCart = (product, qty) => {
     setCart((prev) => {
       const existing = prev.find((p) => p.id === product.id);
