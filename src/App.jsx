@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <div className="flex flex-col min-h-screen font-poppins">
-      <Header cart={cart} />
+      <Header cartItemCount={cart.length} />
       <main className="flex-1 p-5">
         <Outlet
           context={{
