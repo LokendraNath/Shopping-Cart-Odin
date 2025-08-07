@@ -1,12 +1,3 @@
-1. ProductCard Component
-✅ Product title, price, image render हो रहे हैं या नहीं
-✅ Quantity input default value और min/max boundaries (1-10)
-✅ + और - बटन से quantity सही बढ़/घट रही है
-✅ Quantity input में manually value डालने पर सही update हो रहा है
-✅ Add To Cart बटन पर click से onAddToCart सही arguments के साथ call हो रहा है
-✅ Quantity invalid (0, "", 11) डालने पर addToCart नहीं होना चाहिए
-
-
 2. Cart Page
 ✅ Cart में items सही render हो रहे हैं (title, price, qty, image)
 ✅ Cart में quantity + और - बटन से update हो रही है (handleCartQtyClick)
@@ -14,6 +5,8 @@
 ✅ Cart total, GST, delivery, final total calculation सही है
 ✅ Cart empty हो तो empty state दिख रहा है
 ✅ Checkout बटन render हो रहा है
+
+
 3. Header Component
 ✅ Logo और cart icon render हो रहे हैं
 ✅ Cart icon पर cart count badge सही दिख रहा है
