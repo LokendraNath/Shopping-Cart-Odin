@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
-import ProductCard from "./ProductCard";
+import productDetailCard from "./productDetailCard";
 import { describe, expect, it, vi } from "vitest";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 
-describe("ProductCard", () => {
-  it("renders product name and price", async () => {
-    const product = {
+describe("productDetailCard", () => {
+  it("renders productDetail name and price", async () => {
+    const productDetail = {
       title: "Nike Air Max",
       price: 5999,
       id: 1,
@@ -14,7 +14,12 @@ describe("ProductCard", () => {
 
     const onAddToCart = vi.fn();
 
-    render(<ProductCard product={product} onAddToCart={onAddToCart} />);
+    render(
+      <productDetailCard
+        productDetail={productDetail}
+        onAddToCart={onAddToCart}
+      />
+    );
 
     const button = screen.getByRole("button", { name: /add to cart/i });
 
@@ -22,30 +27,34 @@ describe("ProductCard", () => {
 
     expect(screen.getByText("Nike Air Max")).toBeInTheDocument();
     expect(screen.getByText(/\$5999/i)).toBeInTheDocument();
-    expect(onAddToCart).toHaveBeenCalledWith(product, 1);
+    expect(onAddToCart).toHaveBeenCalledWith(productDetail, 1);
   });
 
   it("quantiy input has defaoult value 1", () => {
-    const product = {
+    const productDetail = {
       title: "Nike Air Max",
       price: 5999,
       id: 1,
     };
 
-    render(<ProductCard product={product} onAddToCart={() => {}} />);
+    render(
+      <productDetailCard productDetail={productDetail} onAddToCart={() => {}} />
+    );
 
     const input = screen.getByRole("spinbutton");
     expect(input).toHaveValue(1);
   });
 
   it("quantity cannot go below 1", async () => {
-    const product = {
+    const productDetail = {
       title: "Nike Air Max",
       price: 5999,
       id: 1,
     };
 
-    render(<ProductCard product={product} onAddToCart={() => {}} />);
+    render(
+      <productDetailCard productDetail={productDetail} onAddToCart={() => {}} />
+    );
 
     const input = screen.getByRole("spinbutton");
     const minus = screen.getByText("-");
@@ -56,13 +65,15 @@ describe("ProductCard", () => {
   });
 
   it("quantity cannot go above 10", async () => {
-    const product = {
+    const productDetail = {
       title: "Nike Air Max",
       price: 5999,
       id: 1,
     };
 
-    render(<ProductCard product={product} onAddToCart={() => {}} />);
+    render(
+      <productDetailCard productDetail={productDetail} onAddToCart={() => {}} />
+    );
 
     const input = screen.getByRole("spinbutton");
     const plus = screen.getByText("+");
@@ -79,13 +90,15 @@ describe("ProductCard", () => {
   });
 
   it("does not allow manual entry below 1 or above 10", async () => {
-    const product = {
+    const productDetail = {
       title: "Nike Air Max",
       price: 5999,
       id: 1,
     };
 
-    render(<ProductCard product={product} onAddToCart={() => {}} />);
+    render(
+      <productDetailCard productDetail={productDetail} onAddToCart={() => {}} />
+    );
     const input = screen.getByRole("spinbutton");
 
     // try to enter 0

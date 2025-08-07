@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ProductCard = ({ product, onAddToCart }) => {
+const ProductCard = ({ productDetail, onAddToCart }) => {
   const [quntity, setQuntity] = useState(1);
 
   function handleQtyClick(arg) {
@@ -26,20 +26,20 @@ const ProductCard = ({ product, onAddToCart }) => {
 
   function handleAddToCart() {
     if (quntity && Number(quntity) > 0) {
-      onAddToCart(product, Number(quntity));
+      onAddToCart(productDetail, Number(quntity));
       setQuntity(1);
     }
   }
 
   return (
     <div className="border-1 flex flex-col items-center justify-center py-3 px-5 rounded-lg hover:scale-105 transition-transform duration-300 shadow-[0px_4px_6px_0px_rgba(0,_0,_0,_0.1)] hover:shadow-[0px_8px_12px_0px_rgba(0,_0,_0,_0.1)]">
-      <img src={product.image} className="h-50" alt="image tha" />
+      <img src={productDetail.image} className="h-50" alt="image tha" />
       <div className="mt-10 px-3 flex items-center flex-col">
         <h2 className="text-xl mb-3 text-start line-clamp-1">
-          {product.title}
+          {productDetail.title}
         </h2>
         <div className="flex text-black items-center mb-5">
-          <p className="text-xl text-start mr-5">${product.price}</p>
+          <p className="text-xl text-start mr-5">${productDetail.price}</p>
           <div className="border border-black px-2 py-1 rounded-2xl flex items-center">
             <span
               onClick={() => handleQtyClick("min")}
@@ -64,7 +64,7 @@ const ProductCard = ({ product, onAddToCart }) => {
           </div>
         </div>
         <button
-          onClick={() => handleAddToCart(product.id)}
+          onClick={() => handleAddToCart(productDetail.id)}
           className="flex bg-blue-800 text-white py-2 text-xl items-center px-5 rounded-full gap-3 active:scale-95 transition-transform duration-300"
         >
           Add To Cart

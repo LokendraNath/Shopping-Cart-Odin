@@ -15,12 +15,12 @@
 ✅ Footer में credit text render हो रहा है
 5. Home Page
 ✅ Welcome message, image, और "Shop Now" बटन render हो रहे हैं
-✅ "Shop Now" बटन पर click से products page पर navigation हो रहा है
-6. Product Page
-✅ Product list सही render हो रही है (ProductCard के साथ)
-✅ ProductCard के props सही pass हो रहे हैं
+✅ "Shop Now" बटन पर click से productDetails page पर navigation हो रहा है
+6. productDetail Page
+✅ productDetail list सही render हो रही है (productDetailCard के साथ)
+✅ productDetailCard के props सही pass हो रहे हैं
 7. Integration & Flow
-✅ Product add करने पर cart में item count बढ़ता है
+✅ productDetail add करने पर cart में item count बढ़ता है
 ✅ Cart में quantity update करने पर total update होता है
 ✅ Cart से item delete करने पर total update होता है
 ✅ Checkout बटन पर click से (अगर implemented है) सही action होता है
@@ -29,5 +29,5 @@
 ✅ Keyboard navigation (Tab, Enter) से main actions accessible हैं
 9. Edge Cases
 ✅ Cart में 0 item हो तो empty state
-✅ Product की quantity 1 से कम या 10 से ज्यादा नहीं जा सकती
-✅ ProductCard में image ना हो तो fallback alt text
+✅ productDetail की quantity 1 से कम या 10 से ज्यादा नहीं जा सकती
+✅ productDetailCard में image ना हो तो fallback alt text

@@ -10,24 +10,24 @@ export const useCart = () => {
   useEffect(() => {
     localStorage.setItem("odin-shop-cart", JSON.stringify(cart));
   }, [cart]);
-  
-  const onAddToCart = (product, qty) => {
+
+  const onAddToCart = (productDetail, qty) => {
     setCart((prev) => {
-      const existing = prev.find((p) => p.id === product.id);
+      const existing = prev.find((p) => p.id === productDetail.id);
 
       if (existing) {
         return prev.map((item) =>
-          item.id === product.id ? { ...item, qty: item.qty + qty } : item
+          item.id === productDetail.id ? { ...item, qty: item.qty + qty } : item
         );
       }
-      return [...prev, { ...product, qty }];
+      return [...prev, { ...productDetail, qty }];
     });
   };
 
-  const handleCartQtyClick = (arg, productId) => {
+  const handleCartQtyClick = (arg, productDetailId) => {
     setCart((prevCart) =>
       prevCart.map((item) => {
-        if (item.id === productId) {
+        if (item.id === productDetailId) {
           if (arg === "plus" && item.qty < 10)
             return { ...item, qty: item.qty + 1 };
           if (arg === "min" && item.qty > 1)
@@ -38,8 +38,10 @@ export const useCart = () => {
     );
   };
 
-  const handleDeleteCartItem = (productId) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+  const handleDeleteCartItem = (productDetailId) => {
+    setCart((prevCart) =>
+      prevCart.filter((item) => item.id !== productDetailId)
+    );
   };
 
   return {

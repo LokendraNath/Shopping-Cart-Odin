@@ -15,14 +15,14 @@ QuickBasket is a modern and responsive shopping cart application built using **R
 - **React** – Component-based architecture
 - **Tailwind CSS** – Utility-first styling
 - **React Router** – Page navigation
-- **FakeStore API** – Product data fetching
+- **FakeStore API** – productDetail data fetching
 
 ---
 
 ## 🎯 Project Focus
 
 > **Learning Goal:**  
-Build a complete e-commerce cart flow with dynamic state updates, routing, and clean UI/UX practices, following Odin Project's Shopping Cart challenge.
+> Build a complete e-commerce cart flow with dynamic state updates, routing, and clean UI/UX practices, following Odin Project's Shopping Cart challenge.
 
 ---
 
@@ -30,10 +30,10 @@ Build a complete e-commerce cart flow with dynamic state updates, routing, and c
 
 - ✅ **Clean & Responsive UI**
 - 🏠 **Home Page** – Overview and intro
-- 🛍️ **Product Page** – Display products from [FakeStore API](https://fakestoreapi.com)
-- ➕ **Add to Cart** – Add products to your cart with selected quantity
+- 🛍️ **productDetail Page** – Display productDetails from [FakeStore API](https://fakestoreapi.com)
+- ➕ **Add to Cart** – Add productDetails to your cart with selected quantity
 - 🔄 **Real-time Quantity Update** – Adjust item quantities on the fly
 - 🧮 **Subtotal Calculation** – Checkout page displays live totals
 - 🛒 **Cart Page** – Review and manage your cart items
-- ❌ **Remove Item** – Easily remove any product from the cart
+- ❌ **Remove Item** – Easily remove any productDetail from the cart
 - 💳 **Checkout Page** – Proceed to payment (UI only)

@@ -14,7 +14,7 @@ log.txt
 
 # ✅ dotenv environment files
 .env
-.env.* # like .env.local, .env.production
+.env.* # like .env.local, .env.productDetailion
 
 # ✅ Editor folders
 .vscode/

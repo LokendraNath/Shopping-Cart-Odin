@@ -1,14 +1,12 @@
-import About from "../pages/About.jsx";
-import Contact from "../pages/Contact.jsx";
 import Home from "../pages/Home.jsx";
-import Product from "../pages/Product.jsx";
 import Cart from "../pages/Cart/Cart.jsx";
 import App from "../App.jsx";
+import Products from "../pages/Product.jsx";
 
 const dataLoader = async () => {
   const response = await fetch("https://fakestoreapi.com/products");
-  const productData = await response.json();
-  return { productData };
+  const productsData = await response.json();
+  return { productsData };
 };
 
 export const routes = [
@@ -27,7 +25,7 @@ export const routes = [
       },
       {
         path: "products",
-        element: <Product />,
+        element: <Products />,
       },
     ],
   },

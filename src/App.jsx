@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import { useCart } from "./hooks/useCart";
 
 const App = () => {
-  const { productData } = useLoaderData();
+  const { productsData } = useLoaderData();
 
   const {
     cart,
@@ -21,7 +21,7 @@ const App = () => {
         <Outlet
           context={{
             cart,
-            productData,
+            productsData,
             setCart,
             onAddToCart,
             handleCartQtyClick,
