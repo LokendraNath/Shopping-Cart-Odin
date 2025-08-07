@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ShopContext } from "../Context/ShopContext";
 
-const ProductCard = ({ productDetail, onAddToCart }) => {
+const ProductCard = ({ productDetail }) => {
+  const { onAddToCart } = useContext(ShopContext);
   const [quntity, setQuntity] = useState(1);
 
   function handleQtyClick(arg) {

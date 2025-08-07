@@ -2,10 +2,10 @@ import { Header } from "./components/Header";
 import { Outlet, useLoaderData } from "react-router-dom";
 import Footer from "./components/Footer";
 import { useCart } from "./hooks/useCart";
+import { ShopContext } from "./Context/ShopContext";
 
-const App = () => {
+export const App = () => {
   const { productsData } = useLoaderData();
-
   const {
     cart,
     setCart,
@@ -15,23 +15,23 @@ const App = () => {
   } = useCart();
 
   return (
-    <div className="flex flex-col min-h-screen font-poppins">
-      <Header cartItemCount={cart.length} />
-      <main className="flex-1 p-5">
-        <Outlet
-          context={{
-            cart,
-            productsData,
-            setCart,
-            onAddToCart,
-            handleCartQtyClick,
-            handleDeleteCartItem,
-          }}
-        />
-      </main>
-      <Footer />
-    </div>
+    <ShopContext.Provider
+      value={{
+        cart,
+        productsData,
+        setCart,
+        onAddToCart,
+        handleCartQtyClick,
+        handleDeleteCartItem,
+      }}
+    >
+      <div className="flex flex-col min-h-screen font-poppins">
+        <Header />
+        <main className="flex-1 p-5">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </ShopContext.Provider>
   );
 };
-
-export default App;

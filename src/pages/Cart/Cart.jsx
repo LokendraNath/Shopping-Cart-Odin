@@ -1,9 +1,10 @@
-import { useOutletContext } from "react-router-dom";
 import CartItem from "../../components/CartItem";
 import calculationSammary from "../../utils/cartCalculation";
+import { useContext } from "react";
+import { ShopContext } from "../../Context/ShopContext";
 
 const Cart = () => {
-  const { cart, handleCartQtyClick, handleDeleteCartItem } = useOutletContext();
+  const { cart } = useContext(ShopContext);
   const { total, delivery, gst, finalTotal } = calculationSammary(cart);
 
   return (
@@ -14,12 +15,7 @@ const Cart = () => {
       <div className="grid grid-cols-12 gap-10">
         <div className="col-span-8 p-5 flex flex-col gap-5 row-span-3 max-h-120 overflow-y-auto">
           {cart.map((item) => (
-            <CartItem
-              key={item.id}
-              item={item}
-              onQtyClick={handleCartQtyClick}
-              onDeleteClick={handleDeleteCartItem}
-            />
+            <CartItem key={item.id} item={item} />
           ))}
         </div>
         <div className="col-span-4 border row-span-1 m-5 p-4">

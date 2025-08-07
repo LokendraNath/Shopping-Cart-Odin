@@ -1,7 +1,10 @@
 import { X } from "lucide-react";
-import React from "react";
+import React, { useContext } from "react";
+import { ShopContext } from "../Context/ShopContext";
 
-const CartItem = ({ item, onQtyClick, onDeleteClick }) => {
+const CartItem = ({ item }) => {
+  const { handleCartQtyClick, handleDeleteCartItem } = useContext(ShopContext);
+
   return (
     <div
       key={item.id}
@@ -10,7 +13,7 @@ const CartItem = ({ item, onQtyClick, onDeleteClick }) => {
       <X
         className="absolute right-[-7px] top-[-7px] bg-red-500 rounded-full text-white cursor-pointer"
         size={20}
-        onClick={() => onDeleteClick(item.id)}
+        onClick={() => handleDeleteCartItem(item.id)}
       />
       <div className="w-30 h-30 shrink-0 overflow-hidden col-span-3">
         <img
@@ -28,7 +31,7 @@ const CartItem = ({ item, onQtyClick, onDeleteClick }) => {
           Quantity:{" "}
           <div className="border border-black px-2 py-1 rounded-2xl flex items-center">
             <span
-              onClick={() => onQtyClick("min", item.id)}
+              onClick={() => handleCartQtyClick("min", item.id)}
               className="text-xl cursor-pointer active:scale-95 transition-transform"
             >
               -
@@ -42,7 +45,7 @@ const CartItem = ({ item, onQtyClick, onDeleteClick }) => {
               className="bg-white text-black w-8 border-none focus:border-none outline-none ml-4"
             />
             <span
-              onClick={() => onQtyClick("plus", item.id)}
+              onClick={() => handleCartQtyClick("plus", item.id)}
               className="text-xl cursor-pointer active:scale-95 transition-transform"
             >
               +

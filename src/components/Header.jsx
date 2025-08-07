@@ -1,16 +1,18 @@
 import { CircleUserRound, ShoppingCart } from "lucide-react";
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { ShopContext } from "../Context/ShopContext";
 
-const Links = ({ cartItemCount }) => {
+const Links = () => {
+  const { cart } = useContext(ShopContext);
   return (
     <ul className="relative">
       <Link to="cart">
         <ShoppingCart size={30} className="cursor-pointer" />
       </Link>
-      {cartItemCount ? (
+      {cart.length ? (
         <div className="bg-blue-500 absolute top-[-6px] right-[-2px] w-5 h-5 flex items-center justify-center rounded-full text-white">
-          {cartItemCount}
+          {cart.length}
         </div>
       ) : (
         ""

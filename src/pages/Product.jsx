@@ -1,8 +1,9 @@
-import { useOutletContext } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
+import { useContext } from "react";
+import { ShopContext } from "../Context/ShopContext";
 
 const Products = () => {
-  const { productsData, setCart, cart, onAddToCart } = useOutletContext();
+  const { productsData } = useContext(ShopContext);
 
   return (
     <div>
@@ -10,13 +11,7 @@ const Products = () => {
       <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10">
         {productsData.map((productDetail) => {
           return (
-            <ProductCard
-              key={productDetail.id}
-              productDetail={productDetail}
-              setCart={setCart}
-              cart={cart}
-              onAddToCart={onAddToCart}
-            />
+            <ProductCard key={productDetail.id} productDetail={productDetail} />
           );
         })}
       </div>
