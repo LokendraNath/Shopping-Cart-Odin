@@ -1,11 +1,27 @@
 import CartItem from "../../components/CartItem";
-import calculationSammary from "../../utils/cartCalculation";
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import { ShopContext } from "../../Context/ShopContext";
 
 const Cart = () => {
   const { cart } = useContext(ShopContext);
-  const { total, delivery, gst, finalTotal } = calculationSammary(cart);
+
+  const { total, delivery, gst, finalTotal } = useMemo(() => {
+    const totalAmount = cart.reduce(
+      (sum, item) => sum + Number(item.price) * Number(item.qty),
+      0
+    );
+
+    const deliveryFee = totalAmount > 100 ? 0 : totalAmount > 50 ? 5 : 10;
+    const tax = totalAmount * 0.18;
+    const final = totalAmount + tax + Number(deliveryFee);
+
+    return {
+      total: totalAmount,
+      delivery: deliveryFee,
+      gst: tax,
+      finalTotal: final,
+    };
+  }, [cart]);
 
   return (
     <div className="min-h-auto">

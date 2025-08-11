@@ -15,7 +15,7 @@ export const App = () => {
   } = useCart();
 
   return (
-    <ShopContext.Provider
+    <ShopContext
       value={{
         cart,
         productsData,
@@ -32,6 +32,6 @@ export const App = () => {
         </main>
         <Footer />
       </div>
-    </ShopContext.Provider>
+    </ShopContext>
   );
 };
