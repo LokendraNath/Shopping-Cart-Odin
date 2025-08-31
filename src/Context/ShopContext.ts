@@ -1,11 +1,11 @@
 import React, { createContext } from "react";
-interface Product {
+export interface Product {
   id: number;
   title: string;
   price: number;
   image: string;
 }
-interface CartItem extends Product {
+export interface CartItem extends Product {
   qty: number;
 }
 interface ShopContextType {

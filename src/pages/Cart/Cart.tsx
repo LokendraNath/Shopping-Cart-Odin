@@ -1,13 +1,21 @@
-import CartItem from "../../components/CartItem";
+import CartItem from "../../components/CartItem.js";
 import { useContext, useMemo } from "react";
-import { ShopContext } from "../../Context/ShopContext";
+import { ShopContext } from "../../Context/ShopContext.js";
 
 const Cart = () => {
-  const { cart } = useContext(ShopContext);
+  const shopContext = useContext(ShopContext);
+
+  if (!shopContext || !Array.isArray(shopContext.cart)) {
+    // Optionally, render a loading or error state
+    return <div>Loading...</div>;
+  }
+
+  const cart = shopContext.cart;
 
   const { total, delivery, gst, finalTotal } = useMemo(() => {
     const totalAmount = cart.reduce(
-      (sum, item) => sum + Number(item.price) * Number(item.qty),
+      (sum: number, item: { price: number | string; qty: number | string }) =>
+        sum + Number(item.price) * Number(item.qty),
       0
     );
 
