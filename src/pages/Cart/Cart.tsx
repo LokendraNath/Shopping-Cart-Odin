@@ -38,9 +38,13 @@ const Cart = () => {
       </h1>
       <div className="grid grid-cols-12 gap-10">
         <div className="col-span-8 p-5 flex flex-col gap-5 row-span-3 max-h-120 overflow-y-auto">
-          {cart.map((item) => (
-            <CartItem key={item.id} item={item} />
-          ))}
+          {cart.length > 0 ? (
+            cart.map((item) => <CartItem key={item.id} item={item} />)
+          ) : (
+            <div className="text-center text-gray-500 text-xl mt-10">
+              Nothing is here
+            </div>
+          )}
         </div>
         <div className="col-span-4 border row-span-1 m-5 p-4">
           <h1 className="mb-5">TOTAL</h1>
