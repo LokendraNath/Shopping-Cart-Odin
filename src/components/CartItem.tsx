@@ -1,9 +1,24 @@
 import { X } from "lucide-react";
-import React, { useContext } from "react";
-import { ShopContext } from "../Context/ShopContext";
+import React, { useContext, type FC } from "react";
+import { ShopContext } from "../Context/ShopContext.js";
 
-const CartItem = ({ item }) => {
-  const { handleCartQtyClick, handleDeleteCartItem } = useContext(ShopContext);
+type CartItemProps = {
+  item: {
+    id: string | number;
+    title: string;
+    image: string;
+    price: number;
+    qty: number;
+  };
+};
+
+const CartItem: FC<CartItemProps> = ({ item }) => {
+  const { handleCartQtyClick, handleDeleteCartItem } = useContext(
+    ShopContext
+  ) as {
+    handleCartQtyClick: (type: "min" | "plus", id: string | number) => void;
+    handleDeleteCartItem: (id: string | number) => void;
+  };
 
   return (
     <div
