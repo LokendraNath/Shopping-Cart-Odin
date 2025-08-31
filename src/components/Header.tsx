@@ -16,7 +16,6 @@ const Links = ({ cartItemCount }: { cartItemCount: number }) => {
       ) : (
         ""
       )}
-      ""
     </ul>
   );
 };
