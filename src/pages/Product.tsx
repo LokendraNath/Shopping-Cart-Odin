@@ -1,9 +1,15 @@
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/ProductCard.js";
 import { useContext } from "react";
-import { ShopContext } from "../Context/ShopContext";
+import { ShopContext } from "../Context/ShopContext.js";
 
 const Products = () => {
-  const { productsData } = useContext(ShopContext);
+  const shopContext = useContext(ShopContext);
+
+  if (!shopContext || !shopContext.productsData) {
+    return <div>Loading...</div>;
+  }
+
+  const { productsData } = shopContext;
 
   return (
     <div>
