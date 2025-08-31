@@ -1,7 +1,7 @@
-import Home from "../pages/Home.jsx";
-import Cart from "../pages/Cart/Cart.jsx";
-import Products from "../pages/Product.jsx";
-import { App } from "../App.jsx";
+import Home from "../pages/Home.js";
+import Cart from "../pages/Cart/Cart.js";
+import Products from "../pages/Product.js";
+import { App } from "../App.js";
 
 const dataLoader = async () => {
   const response = await fetch("https://fakestoreapi.com/products");
