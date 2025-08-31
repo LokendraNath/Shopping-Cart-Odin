@@ -2,7 +2,7 @@
 
 ## 📸 Screenshots
 
-![Home Page](./src/image/prev.png)
+![Home Page](./src/assets/prev.png)
 
 ---
 
