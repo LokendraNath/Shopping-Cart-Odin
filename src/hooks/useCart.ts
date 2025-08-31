@@ -1,8 +1,9 @@
 // src/hooks/useCart.js
 import { useEffect, useState } from "react";
+import { type CartItem, type Product } from "../Context/ShopContext.js";
 
 export const useCart = () => {
-  const [cart, setCart] = useState(() => {
+  const [cart, setCart] = useState<CartItem[]>(() => {
     const saved = localStorage.getItem("odin-shop-cart");
     return saved ? JSON.parse(saved) : [];
   });
@@ -11,7 +12,7 @@ export const useCart = () => {
     localStorage.setItem("odin-shop-cart", JSON.stringify(cart));
   }, [cart]);
 
-  const onAddToCart = (productDetail, qty) => {
+  const onAddToCart = (productDetail: Product, qty: number) => {
     setCart((prev) => {
       const existing = prev.find((p) => p.id === productDetail.id);
 
@@ -24,7 +25,7 @@ export const useCart = () => {
     });
   };
 
-  const handleCartQtyClick = (arg, productDetailId) => {
+  const handleCartQtyClick = (arg: "plus" | "min", productDetailId: number) => {
     setCart((prevCart) =>
       prevCart.map((item) => {
         if (item.id === productDetailId) {
@@ -38,7 +39,7 @@ export const useCart = () => {
     );
   };
 
-  const handleDeleteCartItem = (productDetailId) => {
+  const handleDeleteCartItem = (productDetailId: number) => {
     setCart((prevCart) =>
       prevCart.filter((item) => item.id !== productDetailId)
     );
