@@ -1,35 +1,47 @@
-import { useContext, useState } from "react";
-import { ShopContext } from "../Context/ShopContext";
+import React, { useContext, useState } from "react";
+import { ShopContext } from "../Context/ShopContext.js";
+import type { Product } from "../Context/ShopContext.js";
 
-const ProductCard = ({ productDetail }) => {
-  const { onAddToCart } = useContext(ShopContext);
-  const [quntity, setQuntity] = useState(1);
+interface ProductCardProps {
+  productDetail: Product;
+}
 
-  function handleQtyClick(arg) {
-    setQuntity((prev) => {
-      if (arg === "plus" && prev < 10) return prev + 1;
-      else if (arg === "min" && prev > 1) return prev - 1;
-      return prev;
+const ProductCard: React.FC<ProductCardProps> = ({ productDetail }) => {
+  const context = useContext(ShopContext);
+  if (!context)
+    throw new Error("ShopContext must be used within ShopContextProvider");
+
+  const onAddToCart = (
+    context as { onAddToCart: (product: Product, quantity: number) => void }
+  ).onAddToCart;
+  const [quantity, setQuantity] = useState<number | string>(1);
+
+  function handleQtyClick(arg: "plus" | "min") {
+    setQuantity((prev) => {
+      const numPrev = typeof prev === "string" ? Number(prev) : prev;
+      if (arg === "plus" && numPrev < 10) return numPrev + 1;
+      else if (arg === "min" && numPrev > 1) return numPrev - 1;
+      return numPrev;
     });
   }
 
-  function handleInputChange(e) {
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     const value = e.target.value;
 
     if (value === "") {
-      setQuntity("");
+      setQuantity("");
       return;
     }
     const num = Number(value);
     if (!isNaN(num) && num >= 1 && num <= 10) {
-      setQuntity(num);
+      setQuantity(num);
     }
   }
 
   function handleAddToCart() {
-    if (quntity && Number(quntity) > 0) {
-      onAddToCart(productDetail, Number(quntity));
-      setQuntity(1);
+    if (quantity && Number(quantity) > 0) {
+      onAddToCart(productDetail, Number(quantity));
+      setQuantity(1);
     }
   }
 
@@ -52,7 +64,7 @@ const ProductCard = ({ productDetail }) => {
             <input
               type="number"
               min={1}
-              value={quntity}
+              value={quantity}
               onChange={handleInputChange}
               max={10}
               className="bg-white text-black w-8 border-none focus:border-none outline-none ml-4"
@@ -66,7 +78,7 @@ const ProductCard = ({ productDetail }) => {
           </div>
         </div>
         <button
-          onClick={() => handleAddToCart(productDetail.id)}
+          onClick={handleAddToCart}
           className="flex bg-blue-800 text-white py-2 text-xl items-center px-5 rounded-full gap-3 active:scale-95 transition-transform duration-300"
         >
           Add To Cart
