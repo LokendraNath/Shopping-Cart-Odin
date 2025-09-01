@@ -13,8 +13,8 @@ const Products = () => {
 
   return (
     <div>
-      <h1 className="text-center text-4xl mt-5"></h1>
-      <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mt-10">
+      <h1 className="text-center text-4xl mt-5">Products</h1>
+      <div className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2 md:gap-5 mt-10">
         {productsData.map((productDetail) => {
           return (
             <ProductCard key={productDetail.id} productDetail={productDetail} />

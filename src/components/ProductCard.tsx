@@ -46,15 +46,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ productDetail }) => {
   }
 
   return (
-    <div className="border-1 flex flex-col items-center justify-center py-3 px-5 rounded-lg hover:scale-105 transition-transform duration-300 shadow-[0px_4px_6px_0px_rgba(0,_0,_0,_0.1)] hover:shadow-[0px_8px_12px_0px_rgba(0,_0,_0,_0.1)]">
-      <img src={productDetail.image} className="h-50" alt="image tha" />
-      <div className="mt-10 px-3 flex items-center flex-col">
-        <h2 className="text-xl mb-3 text-start line-clamp-1">
+    <div className="border-1 flex flex-col items-center justify-center py-3 px-5 rounded-lg md:hover:scale-105 md:transition-transform duration-300 md:shadow-[0px_4px_6px_0px_rgba(0,_0,_0,_0.1)] hover:shadow-[0px_8px_12px_0px_rgba(0,_0,_0,_0.1)]">
+      <div>
+        <img src={productDetail.image} className="h-50" alt="image tha" />
+      </div>
+      <div className="mt-5 md:mt-10 flex items-start flex-col">
+        <h2 className="text-sm md:text-lg mb-3 text-wrap line-clamp-2">
           {productDetail.title}
         </h2>
         <div className="flex text-black items-center mb-5">
-          <p className="text-xl text-start mr-5">${productDetail.price}</p>
-          <div className="border border-black px-2 py-1 rounded-2xl flex items-center">
+          <p className="text-xl mr-5">${productDetail.price}</p>
+          <div className="hidden  border border-black px-2 py-1 rounded-2xl md:flex items-center">
             <span
               onClick={() => handleQtyClick("min")}
               className="text-xl cursor-pointer active:scale-95 transition-transform"
@@ -79,7 +81,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ productDetail }) => {
         </div>
         <button
           onClick={handleAddToCart}
-          className="flex bg-blue-800 text-white py-2 text-xl items-center px-5 rounded-full gap-3 active:scale-95 transition-transform duration-300"
+          className="flex self-center bg-blue-800 text-white py-2 text-sm md:text-xl items-center px-5 rounded-full gap-3 active:scale-95 transition-transform duration-300"
         >
           Add To Cart
         </button>
