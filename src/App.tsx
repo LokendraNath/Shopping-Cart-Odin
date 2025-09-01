@@ -3,6 +3,7 @@ import { Outlet, useLoaderData } from "react-router-dom";
 import Footer from "./components/Footer.js";
 import { useCart } from "./hooks/useCart.js";
 import { ShopContext } from "./Context/ShopContext.js";
+import Products from "./pages/Product.js";
 
 export const App = () => {
   const { productsData } = useLoaderData();
@@ -29,6 +30,7 @@ export const App = () => {
         <Header cartItemCount={cart.reduce((acc, item) => acc + item.qty, 0)} />
         <main className="flex-1 p-5 mt-15">
           <Outlet />
+          <Products />
         </main>
         <Footer />
       </div>

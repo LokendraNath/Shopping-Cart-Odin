@@ -1,20 +1,13 @@
 import React, { useContext, useState } from "react";
 import { ShopContext } from "../Context/ShopContext.js";
-import type { Product } from "../Context/ShopContext.js";
 
-interface ProductCardProps {
-  productDetail: Product;
-}
-
-const ProductCard: React.FC<ProductCardProps> = ({ productDetail }) => {
+const ProductCard = ({ productDetail }) => {
   const context = useContext(ShopContext);
   if (!context)
     throw new Error("ShopContext must be used within ShopContextProvider");
 
-  const onAddToCart = (
-    context as { onAddToCart: (product: Product, quantity: number) => void }
-  ).onAddToCart;
-  const [quantity, setQuantity] = useState<number | string>(1);
+  const onAddToCart = context.onAddToCart;
+  const [quantity, setQuantity] = useState(1);
 
   function handleQtyClick(arg: "plus" | "min") {
     setQuantity((prev) => {
@@ -51,12 +44,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ productDetail }) => {
         <img src={productDetail.image} className="h-50" alt="image tha" />
       </div>
       <div className="mt-5 md:mt-10 flex items-start flex-col">
-        <h2 className="text-sm md:text-lg mb-3 text-wrap line-clamp-2">
+        <h2 className="text-sm md:text-lg mb-3 text-wrap line-clamp-1">
           {productDetail.title}
         </h2>
-        <div className="flex text-black items-center mb-5">
+        <div className="flex mx-auto text-black items-center mb-5">
           <p className="text-xl mr-5">${productDetail.price}</p>
-          <div className="hidden  border border-black px-2 py-1 rounded-2xl md:flex items-center">
+          <div className="hidden border border-black px-2 py-1 rounded-2xl md:flex items-center">
             <span
               onClick={() => handleQtyClick("min")}
               className="text-xl cursor-pointer active:scale-95 transition-transform"
