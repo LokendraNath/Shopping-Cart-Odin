@@ -1,6 +1,7 @@
 import { ArrowRightIcon, ShoppingCartIcon } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
+import Products from "./Product.js";
 
 const Home = () => {
   return (
