@@ -13,7 +13,7 @@ const CartItem = ({ item }) => {
   return (
     <div
       key={item.id}
-      className="relative w-full border-b-1 py-4 px-3 sm:px-5 grid grid-cols-12 items-start min-h-32 sm:h-40 gap-3 sm:gap-4"
+      className="relative w-full border-b-1 py-4 px-3 sm:px-5 grid grid-cols-12 items-start  gap-3 sm:gap-4"
     >
       <X
         className="absolute right-1 top-1 sm:right-[-7px] sm:top-[-7px] bg-red-500 rounded-full text-white cursor-pointer z-10"
