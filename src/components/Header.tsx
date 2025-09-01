@@ -21,8 +21,8 @@ const Links = ({ cartItemCount }: { cartItemCount: number }) => {
 
 export const Header = ({ cartItemCount }: { cartItemCount: number }) => {
   return (
-    <header className="py-2 lg:py-5 flex items-center justify-between px-5 lg:px-20 text-blue-800">
-      <h1 className="d text-2xl lg:text-3xl font-bold">
+    <header className="py-2 lg:py-5 flex items-center justify-between px-5 lg:px-20 text-blue-800 bg-green-700 sm:bg-yellow-600 lg:bg-orange-700 fixed top-0 w-full left-0 h-15 z-50">
+      <h1 className="text-2xl lg:text-3xl font-bold">
         <Link to="/">QuickBasket</Link>
       </h1>
       <nav className="flex gap-5">
