@@ -35,11 +35,16 @@ const ProductCard = ({ productDetail }) => {
     if (quantity && Number(quantity) > 0) {
       onAddToCart(productDetail, Number(quantity));
       setQuantity(1);
+
+      // Show success toast
+      if (window.showToast) {
+        window.showToast(`${productDetail.title} added to cart!`, "success");
+      }
     }
   }
 
   return (
-    <div className="border-1 flex flex-col items-center justify-center py-3 px-5 rounded-lg md:hover:scale-105 md:transition-transform duration-300 md:shadow-[0px_4px_6px_0px_rgba(0,_0,_0,_0.1)] hover:shadow-[0px_8px_12px_0px_rgba(0,_0,_0,_0.1)]">
+    <div className="border-1 flex flex-col items-center justify-center py-3 px-5 rounded-lg hover-lift transition-all duration-300">
       <div>
         <img src={productDetail.image} className="h-50" alt="image tha" />
       </div>
