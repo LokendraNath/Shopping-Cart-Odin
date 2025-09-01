@@ -31,11 +31,11 @@ const Cart = () => {
 
   return (
     <div className="min-h-auto">
-      <h1 className="text-3xl text-center mb-10 font-bold tracking-widest">
+      <h1 className="text-3xl text-center mb-5 md:mb-10 font-bold tracking-widest">
         Cart
       </h1>
-      <div className="grid grid-cols-12 gap-10">
-        <div className="col-span-8 p-5 flex flex-col gap-5 row-span-3 max-h-120 overflow-y-auto">
+      <div className="flex flex-col md:flex-col ">
+        <div className="p-5 flex flex-col gap-5 max-h-120 overflow-y-auto order-2 md:order-1">
           {cart.length > 0 ? (
             cart.map((item) => <CartItem key={item.id} item={item} />)
           ) : (
@@ -44,7 +44,7 @@ const Cart = () => {
             </div>
           )}
         </div>
-        <div className="col-span-4 border row-span-1 m-5 p-4">
+        <div className="border p-4 order-1 md:order-2">
           <h1 className="mb-5">TOTAL</h1>
           <div className="border-t border-b py-4 px-3">
             <div className="flex items-center justify-between mb-3">

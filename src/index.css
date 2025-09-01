@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&family=Poppins:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Leckerli+One&family=Poppins:wght@400;500&display=swap");
 
 @import "tailwindcss";
 
@@ -8,13 +8,32 @@
 }
 
 /* Chrome, Safari, Edge ke liye */
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
 /* Firefox ke liye */
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
-}s
+}
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  10%,
+  40% {
+    opacity: 1;
+  }
+}
+.animate-fade {
+  animation: fadeInOut 6s infinite;
+}
+.delay-2000 {
+  animation-delay: 2s;
+}
+.delay-4000 {
+  animation-delay: 4s;
+}

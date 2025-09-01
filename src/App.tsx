@@ -27,7 +27,7 @@ export const App = () => {
     >
       <div className="flex flex-col min-h-screen font-poppins">
         <Header cartItemCount={cart.reduce((acc, item) => acc + item.qty, 0)} />
-        <main className="flex-1 p-5">
+        <main className="flex-1 p-5 mt-15">
           <Outlet />
         </main>
         <Footer />
