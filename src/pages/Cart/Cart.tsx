@@ -1,4 +1,5 @@
 import CartItem from "../../components/CartItem.js";
+import EmptyState from "../../components/EmptyState.js";
 import { useContext, useMemo } from "react";
 import { ShopContext } from "../../Context/ShopContext.js";
 
@@ -39,9 +40,12 @@ const Cart = () => {
           {cart.length > 0 ? (
             cart.map((item) => <CartItem key={item.id} item={item} />)
           ) : (
-            <div className="text-center text-gray-500 text-xl mt-10">
-              Nothing is here
-            </div>
+            <EmptyState
+              title="Your Cart is Empty"
+              description="Looks like you haven't added any items to your cart yet. Start shopping to see some amazing products!"
+              icon="🛒"
+              action={undefined}
+            />
           )}
         </div>
         <div className="border p-4 order-1 md:order-2">
