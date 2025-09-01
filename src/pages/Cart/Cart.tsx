@@ -5,17 +5,14 @@ import { ShopContext } from "../../Context/ShopContext.js";
 const Cart = () => {
   const shopContext = useContext(ShopContext);
 
-  if (!shopContext || !Array.isArray(shopContext.cart)) {
-    // Optionally, render a loading or error state
-    return <div>Loading...</div>;
-  }
+  const { total, delivery, gst, finalTotal, cart } = useMemo(() => {
+    if (!shopContext || !Array.isArray(shopContext.cart)) {
+      return { total: 0, delivery: 0, gst: 0, finalTotal: 0, cart: [] };
+    }
 
-  const cart = shopContext.cart;
-
-  const { total, delivery, gst, finalTotal } = useMemo(() => {
+    const cart = shopContext.cart;
     const totalAmount = cart.reduce(
-      (sum: number, item: { price: number | string; qty: number | string }) =>
-        sum + Number(item.price) * Number(item.qty),
+      (sum, item) => sum + Number(item.price) * Number(item.qty),
       0
     );
 
@@ -28,8 +25,9 @@ const Cart = () => {
       delivery: deliveryFee,
       gst: tax,
       finalTotal: final,
+      cart,
     };
-  }, [cart]);
+  }, [shopContext]);
 
   return (
     <div className="min-h-auto">
